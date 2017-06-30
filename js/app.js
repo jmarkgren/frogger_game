@@ -25,9 +25,9 @@ Enemy.prototype.update = function(dt) {
     if (this.x > 500) {
         this.x = -100;
     }
-
-
 };
+
+
 
 
 // Draw the enemy on the screen, required method for game
@@ -61,7 +61,17 @@ Player.prototype.update = function(dt) {
             this.x = 400;
         }
     }
-   // this.checkCollisions();
+   this.checkCollisions();
+};
+
+Player.prototype.checkCollisions = function (){
+
+    if (this.x < Enemy.x + Enemy.width &&
+       this.x + this.width > Enemy.x &&
+       rect1.y < rect2.y + rect2.height &&
+       rect1.height + rect1.y > rect2.y) {
+        console.log("collision detected");
+    }
 };
 
 Player.prototype.handleInput = function(direction) {
