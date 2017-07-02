@@ -1,6 +1,16 @@
-frontend-nanodegree-arcade-game
-===============================
+#Arcade Game for Udacity Front End Course
+I created this game as part of the Front End Nano Degree course at [Udacity](https://www.udacity.com/).
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+#How to run
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+To set up this game, download the my_game folder with all of the source files. Open index.html in your web browser.
+
+#How to play
+
+The goal of the game is to move the player accross the board and reach the water without colliding with any of the enemy bugs.
+
+To play the game, use the up, down, left, and right arrow keys to move your player accross the board. Avoid the enemy bugs! If your player collides with any of the enemies, the player moves back to the starting position. To win the game, the player must reach the water.
+
+#License
+
+The content of this repository is licensed under a [Creative Commons](https://creativecommons.org/licenses/by/3.0/us/) Attribution License

@@ -46,11 +46,12 @@ var Player = function(x, y){
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function(dt) {
-    //When player gets to the water, you win!
-    if (this.y < -) {
+//When player gets to the water, you win!
+    if (this.y < -29) {
         alert("You win!");
+        this.reset();
     }
-    //Player can't move down off canvas
+//Player can't move down off canvas
     if (this.y > 420) {
         this.y = 420;
     }
@@ -77,7 +78,6 @@ Player.prototype.handleInput = function(direction) {
     } else if (direction === "right") {
         this.x = this.x + 100;
     }
-
 };
 
 Player.prototype.checkCollisions = function (){
