@@ -28,8 +28,6 @@ Enemy.prototype.update = function(dt) {
 };
 
 
-
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -41,17 +39,22 @@ var Player = function(x, y){
     this.y = y;
     this.speed = 100;
     this.width = 80;
-    this.height = 80;
+    this.height = 70;
     this.sprite = 'images/char-cat-girl.png';
 
 }
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function(dt) {
-    //Player can't move up or down off canvas
-    if (this.y < -30 || this.y > 420){
+    //When player gets to the water, you win!
+    if (this.y < -) {
+        alert("You win!");
+    }
+    //Player can't move down off canvas
+    if (this.y > 420) {
         this.y = 420;
     }
+
     //When the player moves off canvas to the left or right, it appears at the opposite side
     if (this.x > 420 || this.x < 0){
         if (this.x > 420) {
@@ -62,16 +65,6 @@ Player.prototype.update = function(dt) {
         }
     }
    this.checkCollisions();
-};
-
-Player.prototype.checkCollisions = function (){
-
-    if (this.x < Enemy.x + Enemy.width &&
-       this.x + this.width > Enemy.x &&
-       rect1.y < rect2.y + rect2.height &&
-       rect1.height + rect1.y > rect2.y) {
-        console.log("collision detected");
-    }
 };
 
 Player.prototype.handleInput = function(direction) {
@@ -87,10 +80,29 @@ Player.prototype.handleInput = function(direction) {
 
 };
 
+Player.prototype.checkCollisions = function (){
+
+    for (i = 0; i < allEnemies.length; i++) {
+        if (this.x < allEnemies[i].x + allEnemies[i].width &&
+       this.x + this.width > allEnemies[i].x &&
+       this.y < allEnemies[i].y + allEnemies[i].height &&
+       this.height + this.y > allEnemies[i].y) {
+        console.log("collision");
+        this.reset();
+        }
+    }
+};
+
 // Draw the player on the screen, required method for game
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
+//Player reset to original position
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 420;
+}
 
 // Now instantiate your objects.
 var bug1 = new Enemy(-200,60);
@@ -101,9 +113,6 @@ var bug3 = new Enemy(-20, 230);
 var player = new Player(200, 420);
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [bug1, bug2, bug3];
-
-
-
 
 
 // This listens for key presses and sends the keys to your
