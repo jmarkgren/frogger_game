@@ -3,8 +3,8 @@ I created this game as part of the Front End Nano Degree course at [Udacity](htt
 
 ## How to run
 
-*Download the my_game folder with all of the source files.
-*Open index.html in your web browser.
+* Download the my_game folder with all of the source files.
+* Open index.html in your web browser.
 
 ## How to play
 
