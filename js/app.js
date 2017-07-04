@@ -49,10 +49,13 @@ Player.prototype.update = function(dt) {
 //When player gets to the water, you win!
     if (this.y <= -30) {
         setTimeout(function(){
-            alert("You win! Please refresh the page to play again.");
+            if(!alert('You Win!')){
+                window.location.reload();
+            }
         }, 100);
         this.reset;
     }
+
 //Player can't move down off canvas
     if (this.y > 420) {
         this.y = 420;
